@@ -1,18 +1,14 @@
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Container } from '../styles/Home'
 import { Header } from '../components/Header'
 import { Product } from '../types/Products'
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-
-
-export const Home = ( ) => {
-
+export const Home = () => {
   const [dados, setDados] = useState([])
 
-  useEffect( () => {
-   
+  useEffect(() => {
     const getData = async () => {
       const res = await fetch('https://fakestoreapi.com/products')
       const data = await res.json()
@@ -21,8 +17,7 @@ export const Home = ( ) => {
     }
 
     getData()
-
-  },[])
+  }, [])
 
   return (
     <>
@@ -40,7 +35,7 @@ export const Home = ( ) => {
 
         {/* área de Categorias */}
         <ul>
-        {dados.map((item: Product)=>(
+        {dados.map((item: Product) => (
           <li key={item.id}>
             <Image
             src={item.image}
@@ -53,9 +48,9 @@ export const Home = ( ) => {
           </li>
         ))}
         </ul>
-      
+
       </Container>
-      
+
     </>
   )
 }
