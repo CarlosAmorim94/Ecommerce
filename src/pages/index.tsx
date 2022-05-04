@@ -4,20 +4,20 @@ import { Container } from '../styles/Home'
 import { Header } from '../components/Header'
 import { Product } from '../types/Products'
 import Image from 'next/image'
+import { GetServerSideProps } from 'next'
 
-export const Home = () => {
-  const [dados, setDados] = useState([])
+export const Home = ({data} : Product[]) => {
+  /* const [dados, setDados] = useState([])
 
-  useEffect(() => {
+  /* useEffect(() => {
     const getData = async () => {
-      const res = await fetch('https://fakestoreapi.com/products')
-      const data = await res.json()
+      
 
       setDados(data)
     }
 
     getData()
-  }, [])
+  }, []) */ 
 
   return (
     <>
@@ -35,7 +35,7 @@ export const Home = () => {
 
         {/* área de Categorias */}
         <ul>
-        {dados.map((item: Product) => (
+        {data.map((item: Product) => (
           <li key={item.id}>
             <Image
             src={item.image}
@@ -53,6 +53,24 @@ export const Home = () => {
 
     </>
   )
+}
+
+export async function getServerSideProps() {
+
+  const response = await fetch('https://fakestoreapi.com/products')
+  const data = await response.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      data
+    }, 
+  }
 }
 
 export default Home
