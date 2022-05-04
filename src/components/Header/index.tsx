@@ -5,7 +5,7 @@ export const Header = () => {
 
   return (
     <HeaderStyled>
-      ...
+      Cabeçalho da página
     </HeaderStyled>
   )
 }
