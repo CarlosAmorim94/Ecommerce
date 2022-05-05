@@ -2,22 +2,27 @@ import styled from "styled-components";
 
 export const HeaderStyled = styled.header`
   width: 100%;
-  background-color: var(--white);
   height: fit-content;
-`
-export const Container = styled.div`
-  margin: 0 auto;
-  max-width: 1500px;
+  background-color: var(--white);
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  div {
+    display: flex;
+    align-items: center;
+    
+  }
 `
 
 export const Logo = styled.div`
-  width: 100px;
+  width: 50px;
+  margin: 10px;
 `
 
 export const User = styled.div`
+  width: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;

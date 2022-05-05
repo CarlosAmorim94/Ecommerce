@@ -8,7 +8,7 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
 
-  background: url('../../../img/images.jpg');
+  background: url('../../../img/image4.webp');
   background-color: #cccccc;
   background-position: center; 
   background-repeat: no-repeat; 
@@ -17,13 +17,16 @@ export const Container = styled.section`
 export const Title = styled.h1`
   font-size: 5rem;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 2px #fff;
+  color: #fff;
+  text-shadow: 2px 2px 2px #000;
 `
 
 export const SubTitle = styled.h1`
   font-size: 2rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 2px #fff;
+  font-weight: 100;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 2px #000;
 `
 
 export const SearchBar = styled.div`
@@ -40,12 +43,22 @@ export const SearchBar = styled.div`
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
+    align-items: center;
 
+    &:hover {
+      color: red;
+    }
   }
 
   input {
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
+
+    &:focus
+    &:focus-visible {
+      outline: none; 
+      border: none;
+    }
   }
 `

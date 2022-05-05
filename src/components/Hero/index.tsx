@@ -12,7 +12,7 @@ export const Hero = () => {
 
       <Title>Online Shop</Title>
 
-      <SubTitle>Aqui tem de tudo, pelo menor preço!</SubTitle>
+      <SubTitle>Aqui tem tudo, pelo menor preço!</SubTitle>
 
       <SearchBar>
         
