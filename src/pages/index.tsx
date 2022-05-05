@@ -2,32 +2,27 @@ import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Container } from '../styles/Home'
 import { Header } from '../components/Header'
-import { Product } from '../types/Products'
+import { Product, Products } from '../types/Products'
 import Image from 'next/image'
-import { GetServerSideProps } from 'next'
+import { Hero } from '../components/Hero'
 
-export const Home = ({data} : Product[]) => {
-  /* const [dados, setDados] = useState([])
-
-  /* useEffect(() => {
-    const getData = async () => {
-      
-
-      setDados(data)
-    }
-
-    getData()
-  }, []) */ 
+export const Home = ({ data } : Products) => {
+  
 
   return (
     <>
       <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
         <title>Ecommerce</title>
         <meta name="Ecommerce" content="Ecommerce criado com next e typescript para treinar" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header />
+
+      <Hero />
 
       <Container>
 

@@ -7,4 +7,11 @@ module.exports = {
   images: {
     domains: ['fakestoreapi.com'],
   },
+  experimental: { 
+    images: { 
+      layoutRaw: true 
+    } 
+  }
 }
+
+

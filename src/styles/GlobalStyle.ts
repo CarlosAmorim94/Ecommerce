@@ -9,14 +9,13 @@ export const GlobalStyle = createGlobalStyle`
         --white: #FFFFFF;        
     }
 
-    //@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Inter:wght@200;400;700&family=Poppins&display=swap');
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: sans-serif;
-        user-select: none;
+        font-family: Poppins, sans-serif;
+        overflow: hidden;
     }
     
     html{
