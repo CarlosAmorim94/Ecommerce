@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Product } from "../../types/Products";
-import { ItemPrice, ItemTitle, ProductItems } from "./styles";
+import { Button, ItemPrice, ItemTitle, ProductItems } from "./styles";
 
 type Props = {
   items: Product
@@ -20,11 +20,19 @@ export const ProductItem = (items: Props) => {
         layout="raw"
         />
 
-        <ItemTitle>{items.items.title}</ItemTitle>
-        
-        <ItemPrice>R$ {items.items.price}</ItemPrice>
+        <ItemPrice>
 
-        <button>Ver mais</button>
+          <div className="price">R$ {items.items.price}</div>
+          <div className="split-price">Ou em 10x de R${(items.items.price / 10).toFixed(2)} sem juros</div>
+          <div className="free-shipping">Frete grátis</div>
+
+        </ItemPrice>
+        
+
+        <ItemTitle>{items.items.title}</ItemTitle>
+
+        <Button>Mais detalhes</Button>
+
     </ProductItems>
   )
 }
