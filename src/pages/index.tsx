@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
-import { Container } from '../styles/Home'
+import { Container, ProductItems, ProductsArea } from '../styles/Home'
 import { Header } from '../components/Header'
 import { Product, Products } from '../types/Products'
-import Image from 'next/image'
 import { Hero } from '../components/Hero'
+import Image from 'next/image'
+import { ProductItem } from '../components/ProductItem'
+
 
 export const Home = ({ data } : Products) => {
   
@@ -26,23 +28,16 @@ export const Home = ({ data } : Products) => {
 
       <Container>
 
-        {/* área de Carrosel */}
-
         {/* área de Categorias */}
-        <ul>
-        {data.map((item: Product) => (
-          <li key={item.id}>
-            <Image
-            src={item.image}
-            alt={item.title}
-            width={100}
-            height={100}
-            />
 
-            {item.title}
-          </li>
-        ))}
-        </ul>
+
+        <ProductsArea>
+          {data.map((item: Product) => (
+
+            <ProductItem key={item.id} items={item}/>
+
+          ))}
+        </ProductsArea>
 
       </Container>
 

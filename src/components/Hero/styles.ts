@@ -43,7 +43,7 @@ export const SearchBar = styled.div`
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
-    align-items: center;
+    
 
     &:hover {
       color: red;
