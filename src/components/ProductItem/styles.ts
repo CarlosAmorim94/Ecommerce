@@ -23,7 +23,6 @@ export const ProductItems = styled.li`
   &:hover {
     box-shadow: 5px 5px 5px gray;
     transform: translateY(-5px);
-    cursor: pointer;
   }
 `
 export const ItemTitle = styled.div`
