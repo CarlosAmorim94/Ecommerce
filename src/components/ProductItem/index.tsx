@@ -32,7 +32,7 @@ export const ProductItem = (items: Props) => {
 
         <ItemTitle>{items.items.title}</ItemTitle>
 
-        <Link href={`/products/${items.items.id}`}>
+        <Link href={`/${items.items.id}`}>
           <Button>Mais detalhes</Button>
         </Link>
         

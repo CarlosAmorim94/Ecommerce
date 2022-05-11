@@ -1,5 +1,5 @@
 export type Product = {
-  id: number;
+  id: number | string;
   title: string,
   price: number;
   description?: string;
@@ -14,7 +14,7 @@ export type Product = {
 export type Products = {
   [tag: string]: {
     map(arg0: (item: Product) => JSX.Element): import("react").ReactNode;
-    id: number;
+    id: number | string;
     title: string,
     price: number;
     description?: string;
