@@ -4,6 +4,8 @@ import React from "react";
 import { Product, Products } from "../../types/Products";
 import Image from "next/image";
 import { Button, Container, ImageStyled, Info } from "./styles";
+import ReactStars from "react-rating-stars-component"
+import { toRealBRFormat } from "../../helpers/ValuesFormat";
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -42,6 +44,10 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 
 export default function ProductsId ( { data }: Products ) {
 
+  const ratingChanged = (newRating: any) => {
+    console.log(newRating);
+  }
+
   return (
     <Container>
 
@@ -57,9 +63,19 @@ export default function ProductsId ( { data }: Products ) {
     
       <Info>
         <div className="rating">Nota: {data.rating?.rate} / 5.0 ( {data.rating?.count} avaliações )</div>
-        <div className="high-price">de R$ {((data.price) * 1.25).toFixed(2)}</div>
-        <div className="price">por R$ {(data.price).toFixed(2)} à vista  <span>( 25% de desconto )</span></div>
-        <div className="split-price">ou em 10x de R${(data.price / 10).toFixed(2)} sem juros</div>
+        <ReactStars
+          value={data.rating?.rate}
+          count={5}
+          size={24}
+          isHalf={true}
+          emptyIcon={<i className="far fa-star"></i>}
+          halfIcon={<i className="fa fa-star-half-alt"></i>}
+          fullIcon={<i className="fa fa-star"></i>}
+          activeColor="#bea201"
+        />
+        <div className="high-price">de {toRealBRFormat(data.price * 1.25)}</div>
+        <div className="price">por {toRealBRFormat(data.price)} à vista  <span>( 25% de desconto )</span></div>
+        <div className="split-price">ou em 10x de {toRealBRFormat(data.price / 10)} sem juros</div>
         <div className="free-shipping">Frete grátis</div>
 
         <Button>Adicionar ao carrinho</Button>

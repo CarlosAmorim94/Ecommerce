@@ -39,19 +39,19 @@ export const Info = styled.div`
     font-size: 1rem;
     color: black;
     font-weight: bold;
-    margin: 1rem 0;
+    margin: .5rem 0 1rem;
   }
 
   .free-shipping {
     font-size: 1rem;
     color: green;
     font-weight: bold;
-    margin: 1rem 0;
+    margin: 1rem 0 2rem;
   }
 
   .high-price {
     color: gray;
-    margin: 1rem 0;
+    margin: 1.5rem 0 0;
   }
 `
 

@@ -8,12 +8,13 @@ export const HeaderStyled = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`
 
-  div {
-    display: flex;
-    align-items: center;
-    
-  }
+export const LinkStyled = styled.a`
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 `
 
 export const Logo = styled.div`

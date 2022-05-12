@@ -3,12 +3,13 @@ import Image from "next/image";
 import { Product } from "../../types/Products";
 import { Button, ItemPrice, ItemTitle, ProductItems } from "./styles";
 import Link from "next/link";
+import { toRealBRFormat } from "../../helpers/ValuesFormat";
 
 type Props = {
   items: Product
 }
 
-export const ProductItem = ({ items} : Props) => {
+export const ProductItem = ({ items } : Props) => {
 
   return (
     <ProductItems>
@@ -23,8 +24,8 @@ export const ProductItem = ({ items} : Props) => {
 
         <ItemPrice>
 
-          <div className="price">R$ {(items.price).toFixed(2)}</div>
-          <div className="split-price">ou em 10x de R${(items.price / 10).toFixed(2)} sem juros</div>
+          <div className="price">{toRealBRFormat(items.price)}</div>
+          <div className="split-price">ou em 10x de {toRealBRFormat(items.price / 10)} sem juros</div>
           <div className="free-shipping">Frete grátis</div>
 
         </ItemPrice>
