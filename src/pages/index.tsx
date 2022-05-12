@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Container, ProductsArea } from '../styles/Home'
-import { Header } from '../components/Header'
 import { Product, Products } from '../types/Products'
 import { Hero } from '../components/Hero'
 import { ProductItem } from '../components/ProductItem'
@@ -19,7 +18,6 @@ export const Home = ({ data } : Products) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
 
       <Hero />
 
