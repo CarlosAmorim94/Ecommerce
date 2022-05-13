@@ -54,11 +54,5 @@ export const SearchBar = styled.div`
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
-
-    &:focus
-    &:focus-visible {
-      outline: none; 
-      border: none;
-    }
   }
 `

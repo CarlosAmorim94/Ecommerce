@@ -1,10 +1,12 @@
 import { Container, SearchBar, SubTitle, Title } from "./styles"
 import { BsSearch } from 'react-icons/bs'
-import Image from "next/image"
-import backgroundHero from '../../../public/img/backgroundHero.jpg'
+import { useState } from "react"
 
 
 export const Hero = () => {
+
+  const [search, setSearch] = useState('')
+  console.log(search)
 
   return(
     <Container>
@@ -17,6 +19,8 @@ export const Hero = () => {
       <SearchBar>
         
         <input
+        value={search}
+        onChange={event => setSearch(event.target.value)}
         type='text'
         placeholder="Pesquisar..." />
         <button type="submit"><BsSearch /></button>

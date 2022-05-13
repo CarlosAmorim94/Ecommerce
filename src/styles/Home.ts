@@ -12,3 +12,11 @@ export const ProductsArea = styled.ul`
   flex-wrap: wrap;
   justify-content: flex-start;
 `
+export const ScreenWarning = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 2rem;
+`
