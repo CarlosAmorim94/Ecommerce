@@ -30,14 +30,28 @@ export const Home = () => {
 
   //Filtro do campo de buscas
   useEffect(() => {
+    
     let filterList: Product[] = []
     const filter: Product[] = list.filter((product: Product) => {return product.title.includes(searchText)})
 
     if (filter.length > 0) {
       filterList.push(...filter)
+      setList(filterList)
+    } 
+    
+    if(searchText == '') {
+      async function getAPI() {
+        setLoading(true)
+  
+        const response = await fetch('https://fakestoreapi.com/products')
+        const data = await response.json()
+  
+        setLoading(false)
+        setList(data)
+      } 
+  
+      getAPI()
     }
-
-    setList(filterList)
 
   },[searchText])
 
