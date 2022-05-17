@@ -10,9 +10,10 @@ export const Home = () => {
 
   const [ list, setList ] = useState([])
   const [ loading, setLoading ] = useState(false)
-  
-  useEffect(() => {
+  const [ searchText, setSearchText ] = useState('')
 
+  //Listar produtos no inicio
+  useEffect(() => {
     async function getAPI() {
       setLoading(true)
 
@@ -22,10 +23,25 @@ export const Home = () => {
       setLoading(false)
       setList(data)
     } 
-    
+
     getAPI()
 
   },[])
+
+  //Filtro do campo de buscas
+  useEffect(() => {
+    let filterList: Product[] = []
+    const filter: Product[] = list.filter((product: Product) => {return product.title.includes(searchText)})
+
+    if (filter.length > 0) {
+      filterList.push(...filter)
+    }
+
+    setList(filterList)
+
+  },[searchText])
+
+
 
   return (
     <>
@@ -37,7 +53,7 @@ export const Home = () => {
       </Head>
 
 
-      <Hero />
+      <Hero setSearchText={setSearchText} value={searchText} />
 
       <Container>
 

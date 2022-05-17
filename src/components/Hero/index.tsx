@@ -1,16 +1,16 @@
 import { Container, SearchBar, SubTitle, Title } from "./styles"
 import { BsSearch } from 'react-icons/bs'
-import { useState } from "react"
+
+type Props = {
+  setSearchText: any;
+  value: string;
+}
 
 
-export const Hero = () => {
-
-  const [search, setSearch] = useState('')
-  console.log(search)
+export const Hero = ({ setSearchText, value }: Props) => {
 
   return(
     <Container>
-
 
       <Title>Online Shop</Title>
 
@@ -19,11 +19,15 @@ export const Hero = () => {
       <SearchBar>
         
         <input
-        value={search}
-        onChange={event => setSearch(event.target.value)}
+        value={value}
+        onChange={event => setSearchText(event.target.value.toLocaleLowerCase())}
         type='text'
         placeholder="Pesquisar..." />
-        <button type="submit"><BsSearch /></button>
+        <button
+        type="submit"
+        >
+          <BsSearch />
+        </button>
 
       </SearchBar>
 
