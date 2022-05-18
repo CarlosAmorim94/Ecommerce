@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from 'next'
-import React from "react";
+import React, { useContext } from "react";
 import { Product, Products } from "../../types/Products";
 import Image from "next/image";
 import { Button, Category, Container, Content, Description, ImageStyled, Info, TextDescription } from "./styles";
 import ReactStars from "react-rating-stars-component"
 import { toRealBRFormat } from "../../helpers/ValuesFormat";
+import { CartContext } from '../../contexts/CartContext'
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -17,18 +18,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: data.map((product: Product) => {
       //Precisei converter o valor para string antes de retornar para o params, passar direto params:{product.id.toString()} não resolve
       const id = product.id.toString()
-      return{
+      return {
         params: {
           id
-        } 
-      }}),
-      fallback: false
+        }
+      }
+    }),
+    fallback: false
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 
-  
+
   const response = await fetch(`https://fakestoreapi.com/products/${params.id}`)
   const data = await response.json()
 
@@ -42,10 +44,15 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 }
 
 
-export default function ProductsId ( { data }: Products ) {
+export default function ProductsId({ data }: Products) {
 
-  const ratingChanged = (newRating: any) => {
-    console.log(newRating);
+  const cart = useContext(CartContext)
+
+  const product: Product = {
+    id: data.id,
+    title: data.title,
+    image: data.image,
+    price: data.price
   }
 
   return (
@@ -61,7 +68,7 @@ export default function ProductsId ( { data }: Products ) {
             layout="raw"
           />
         </ImageStyled>
-      
+
         <Info>
           <h1>{data.title}</h1>
           <div className="rating">Nota: {data.rating?.rate} / 5.0 ( {data.rating?.count} avaliações )</div>
@@ -80,30 +87,30 @@ export default function ProductsId ( { data }: Products ) {
           <div className="split-price">ou em 10x de {toRealBRFormat(data.price / 10)} sem juros</div>
           <div className="free-shipping">Frete grátis</div>
 
-          <Button>Adicionar ao carrinho</Button>
+          <Button onClick={() => (cart?.addProducts(product))}>Adicionar ao carrinho</Button>
         </Info>
 
       </Content>
 
       <Description>
-          <Category>
-            <h3>Categoria:</h3>
-            <p>
-              {data.category}
-            </p>
-          </Category>
-          
-          <TextDescription>
-            <h3>Descrição:</h3>
+        <Category>
+          <h3>Categoria:</h3>
+          <p>
+            {data.category}
+          </p>
+        </Category>
 
-            <p>
-              {data.description}
-            </p>
-          </TextDescription>
+        <TextDescription>
+          <h3>Descrição:</h3>
 
-        </Description>
-        
-    
+          <p>
+            {data.description}
+          </p>
+        </TextDescription>
+
+      </Description>
+
+
     </Container>
   )
 }
