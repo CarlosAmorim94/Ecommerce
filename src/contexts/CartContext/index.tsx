@@ -4,6 +4,8 @@ import { Product } from '../../types/Products'
 type CartItemsType = {
   cartItems: Product[];
   addProducts: (product: Product) => void;
+  removeProducts: (product: Product) => void;
+  clearCart: () => void;
 }
 
 type Props = {
@@ -16,24 +18,25 @@ export const CartProvider= ( {children}: Props ) => {
 
   const [cartItems, setCartItems] = useState<Product[]>([])
 
-  
+  const addProducts = (product: Product) => {
+    setCartItems([...cartItems, product])
+  }
 
-    /* if (cartItems.length === 0) {
-      setCartItems([product])
-    } else {
-      setCartItems([...cartItems, product])
-    } */
+  const removeProducts = (product: Product) => {
+    const filteredProducts = cartItems.filter(
+      (item) => item.id !== product.id
+    )
 
-    useEffect(() => {
-      console.log(cartItems);
-    }, [cartItems]);
-    const addProducts = (product: Product) => {
-        setCartItems([...cartItems, product]);
-    }
+    setCartItems(filteredProducts)
+  }
+
+  const clearCart = () => {
+    setCartItems([])
+  }
  
 
   return (
-    <CartContext.Provider value={{ cartItems, addProducts }}>
+    <CartContext.Provider value={{ cartItems, addProducts, removeProducts, clearCart }}>
       {children}
     </CartContext.Provider>
   )
