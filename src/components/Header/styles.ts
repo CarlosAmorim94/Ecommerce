@@ -22,14 +22,31 @@ export const Logo = styled.div`
   margin: 10px;
 `
 
-export const User = styled.div`
-  width: 20%;
+export const Cart = styled.div`
+  width: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  margin: 10px;
+  opacity: .7;
+  cursor: pointer;
+  transition: all ease 0.2s;
 
   .cart-shopp {
     color: red;
     font-size: 2rem;
   }
+
+  &:hover {
+    opacity: 1;
+  }
+`
+export const CounterCart = styled.div`
+  margin-right: .5rem;
+  color: white;
+  background-color: red;
+  padding: .5rem;
+  border-radius: 50%;
+  text-align: center;
+  font-size: .7rem;
 `

@@ -1,10 +1,16 @@
-import { HeaderStyled, LinkStyled, Logo, User } from './styles'
-import { FaShoppingCart } from 'react-icons/fa'
+import { HeaderStyled, LinkStyled, Logo, Cart, CounterCart } from './styles'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Image from 'next/image'
 import logoShop from '../../../public/img/logo.png'
 import Link from 'next/link'
+import { CartContext } from '../../contexts/CartContext'
+import { useContext } from 'react'
+
 
 export const Header = () => {
+
+  const cart = useContext(CartContext)
+  
 
   return (
     <HeaderStyled>
@@ -23,12 +29,15 @@ export const Header = () => {
         </LinkStyled>
       </Link>
 
-      <User>
-        <Link href="/cart">
-          <FaShoppingCart className='cart-shopp' />
-        </Link>
-        <div>User</div>
-      </User>
+      <Link href="/cart">
+        <Cart>
+          {cart?.cartItems.length > 0 &&
+          <CounterCart>{cart?.cartItems.length < 10 ? `0${cart.cartItems.length}` : `${cart.cartItems.length}`}</CounterCart>
+          }
+          <AiOutlineShoppingCart className='cart-shopp' />
+        
+        </Cart>
+      </Link>
 
     </HeaderStyled>
   )
