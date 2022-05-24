@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { GetStaticProps, GetStaticPaths } from 'next'
 import React, { useContext } from "react";
 import { Product, Products } from "../../types/Products";

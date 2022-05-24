@@ -24,7 +24,9 @@ export const Header = () => {
       </Link>
 
       <User>
-        <FaShoppingCart className='cart-shopp' />
+        <Link href="/cart">
+          <FaShoppingCart className='cart-shopp' />
+        </Link>
         <div>User</div>
       </User>
 
