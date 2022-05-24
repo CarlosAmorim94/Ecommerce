@@ -1,9 +1,9 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react'
+import { createContext, ReactNode, useState } from 'react'
 import { Product } from '../../types/Products'
 
 type CartItemsType = {
   cartItems: Product[];
-  addProducts: () => void;
+  addProducts: (product: Product) => void;
 }
 
 type Props = {
@@ -18,11 +18,10 @@ export const CartProvider= ( {children}: Props ) => {
 
   const addProducts = (product: Product) => {
 
-    let products: Product[] = []
-    products.push(product)
-    setCartItems(products)
-
+    setCartItems([...cartItems, product])
+    
     console.log(cartItems)
+
   }
 
   return (

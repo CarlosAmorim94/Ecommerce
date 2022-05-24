@@ -87,7 +87,7 @@ export default function ProductsId({ data }: Products) {
           <div className="split-price">ou em 10x de {toRealBRFormat(data.price / 10)} sem juros</div>
           <div className="free-shipping">Frete grátis</div>
 
-          <Button onClick={() => (cart?.addProducts(product))}>Adicionar ao carrinho</Button>
+          <Button onClick={() => (cart?.addProducts(data))}>Adicionar ao carrinho</Button>
         </Info>
 
       </Content>
