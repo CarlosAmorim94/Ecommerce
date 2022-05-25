@@ -6,6 +6,7 @@ import { Button, Category, Container, Content, Description, ImageStyled, Info, T
 import ReactStars from "react-rating-stars-component"
 import { toRealBRFormat } from "../../helpers/ValuesFormat";
 import { CartContext } from '../../contexts/CartContext'
+import Head from 'next/head';
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -56,6 +57,10 @@ export default function ProductsId({ data }: Products) {
 
   return (
     <Container>
+
+    <Head>
+      <title>Online Shop - {data.title}</title>
+    </Head>
 
       <Content>
         <ImageStyled>

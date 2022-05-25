@@ -23,18 +23,18 @@ export const Logo = styled.div`
 `
 
 export const Cart = styled.div`
-  width: auto;
+
   display: flex;
-  justify-content: space-around;
   align-items: center;
   margin: 10px;
   opacity: .7;
   cursor: pointer;
   transition: all ease 0.2s;
+  position: relative;
 
   .cart-shopp {
     color: red;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   &:hover {
@@ -42,11 +42,12 @@ export const Cart = styled.div`
   }
 `
 export const CounterCart = styled.div`
-  margin-right: .5rem;
-  color: white;
-  background-color: red;
-  padding: .5rem;
-  border-radius: 50%;
+  width: 100%;
   text-align: center;
-  font-size: .7rem;
+  color: red;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 900;
+  position: absolute;
+  bottom: 0;
 `

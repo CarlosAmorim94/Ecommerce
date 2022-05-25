@@ -18,7 +18,15 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
     }
     
-    html{
+    html {
         scroll-behavior: smooth;
+    }
+
+    a {
+        text-decoration: none;
+        
+        &:visited {
+            text-decoration: none;
+        }
     }
 `

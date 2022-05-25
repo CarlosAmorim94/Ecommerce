@@ -1,5 +1,5 @@
 import { HeaderStyled, LinkStyled, Logo, Cart, CounterCart } from './styles'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { BsBag } from 'react-icons/bs'
 import Image from 'next/image'
 import logoShop from '../../../public/img/logo.png'
 import Link from 'next/link'
@@ -25,18 +25,21 @@ export const Header = () => {
           </Logo>
           
           <h3>Online Shop</h3>
-
         </LinkStyled>
+
       </Link>
 
       <Link href="/cart">
-        <Cart>
-          {cart?.cartItems.length > 0 &&
-          <CounterCart>{cart?.cartItems.length < 10 ? `0${cart.cartItems.length}` : `${cart.cartItems.length}`}</CounterCart>
-          }
-          <AiOutlineShoppingCart className='cart-shopp' />
-        
-        </Cart>
+        <a>
+          <Cart>
+            {cart?.cartItems.length > 0 &&
+            <CounterCart>{cart?.cartItems.length < 10 ? `0${cart.cartItems.length}` : `${cart.cartItems.length}`}</CounterCart>
+            }
+            
+            <BsBag className='cart-shopp' />
+          
+          </Cart>
+        </a>
       </Link>
 
     </HeaderStyled>

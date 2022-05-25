@@ -61,9 +61,9 @@ export const Home = () => {
     <>
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
-        <title>Ecommerce</title>
-        <meta name="Ecommerce" content="Ecommerce criado com next e typescript para treinar" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Online Shop</title>
+        <meta name="Online Shop" content="Ecommerce criado com next e typescript para treinar" />
+        <link rel="icon" href="/favicon.webp" />
       </Head>
 
 
