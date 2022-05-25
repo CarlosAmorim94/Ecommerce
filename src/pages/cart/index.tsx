@@ -1,28 +1,36 @@
 import { useContext } from "react"
 import { CartItem } from "../../components/CartItem";
 import { CartContext } from "../../contexts/CartContext"
-import { Container, UlList } from "./styles"
+import { Container, ResumeHead, UlList } from "./styles"
+import { Product } from "../../types/Products"
+import { toRealBRFormat } from "../../helpers/ValuesFormat";
+import { BsTrash } from 'react-icons/bs'
 
 export const Cart = () => {
 
    const cart = useContext(CartContext)
 
-   const totalValue = () => {
+        
+    const totalValue = cart?.cartItems.reduce( (initial: number, item: Product) => (
+      initial + item.price
+    ), 0 )
 
-   }
 
   return (
     <Container>
       
-    <div>
+    <ResumeHead>
       <h1>MEU CARRINHO DE COMPRAS</h1>
-      <button>limpar lista</button>
-      <div>Total:</div>
-    </div>
+      <button onClick={cart?.clearCart}>
+        limpar lista
+        <BsTrash />
+      </button>
+      <div>Total: {toRealBRFormat(totalValue)}</div>
+    </ResumeHead>
     
     <UlList>
-      {cart?.cartItems.map((item) => (
-        <CartItem key={item.id} item={item} />
+      {cart?.cartItems.map((item, key) => (
+        <CartItem key={key} item={item} />
       ))}
     </UlList>
     </Container>
