@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { CartItem } from "../../components/CartItem";
 import { CartContext } from "../../contexts/CartContext"
-import { Container, ResumeHead, UlList } from "./styles"
+import { Container, ResumeHead, UlList, ValueTotal } from "./styles"
 import { Product } from "../../types/Products"
 import { toRealBRFormat } from "../../helpers/ValuesFormat";
 import { BsTrash } from 'react-icons/bs'
@@ -22,10 +22,10 @@ export const Cart = () => {
     <ResumeHead>
       <h1>MEU CARRINHO DE COMPRAS</h1>
       <button onClick={cart?.clearCart}>
-        limpar lista
-        <BsTrash />
+        <BsTrash className="trash" />
+        <p>limpar tudo</p>
       </button>
-      <div>Total: {toRealBRFormat(totalValue)}</div>
+      <ValueTotal>Total: <span>{toRealBRFormat(totalValue)}</span></ValueTotal>
     </ResumeHead>
     
     <UlList>
