@@ -15,6 +15,7 @@ export const ImageStyled = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 2rem;
+  cursor: pointer;
 `
 export const Description = styled.div`
   width: 90%;
@@ -55,6 +56,7 @@ export const Details = styled.div`
 
 export const Title = styled.h2`
   font-size: 1rem;
+  cursor: pointer;
 `
 export const Values = styled.div`
   margin-right: 2rem;

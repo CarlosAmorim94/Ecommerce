@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { BsTrash } from 'react-icons/bs'
 import { toRealBRFormat } from "../../helpers/ValuesFormat";
+import Link from "next/link";
 
 
 type Props = {
@@ -16,49 +17,53 @@ export const CartItem = ({ item }: Props) => {
   const cart = useContext(CartContext)
   
   return (
-    <Container>
+      
+        <Container>
+          <Link href={`/products/${item.id}`}>
+          <ImageStyled>
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={100}
+                height={100}
+                layout="raw"
+              />
+            </ImageStyled>
+            </Link>
 
-      <ImageStyled>
-          <Image
-            src={item.image}
-            alt={item.title}
-            width={100}
-            height={100}
-            layout="raw"
-          />
-        </ImageStyled>
+            <Description>
+              
+              <Link href={`/products/${item.id}`}>
+                <Title>
+                  {item.title}
+                </Title>
+              </Link>
 
-        <Description>
-          <Title>
-            {item.title}
-          </Title>
+              <Details>
 
-          <Details>
+                <Values>
+                  <div className="high-price">de {toRealBRFormat(item.price * 1.25)}</div>
+                  <Value>
+                    Total: 
+                    <span>{toRealBRFormat(item.price)} 
+                      <span className="discount">( 25% de desconto )</span>
+                    </span>
+                  </Value>
+                  <div className="split-price">ou em 10x de {toRealBRFormat(item.price / 10)} sem juros</div>
+                  <div className="free-shipping">Frete grátis</div>
+                </Values>
+                
 
-            <Values>
-              <div className="high-price">de {toRealBRFormat(item.price * 1.25)}</div>
-              <Value>
-                Total: 
-                <span>{toRealBRFormat(item.price)} 
-                  <span className="discount">( 25% de desconto )</span>
-                </span>
-              </Value>
-              <div className="split-price">ou em 10x de {toRealBRFormat(item.price / 10)} sem juros</div>
-              <div className="free-shipping">Frete grátis</div>
-            </Values>
+                <button onClick={() => (cart?.removeProducts(item))}>
+                  <BsTrash />
+                </button>
+
+              </Details>
+
+              
+            </Description>
             
-
-            <button onClick={() => (cart?.removeProducts(item))}>
-              <BsTrash />
-            </button>
-
-          </Details>
-
-          
-        </Description>
-        
-
-    </Container>
+        </Container>
   )
 }
 
