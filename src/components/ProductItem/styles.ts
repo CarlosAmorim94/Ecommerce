@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const ProductItems = styled.li`
   width: 22%;
-  height: 350px;
+  height: 370px;
   margin: 1rem auto;
   border: 1px solid red;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1rem .5rem;
 
   display: flex;
   flex-direction: column;
@@ -56,8 +56,27 @@ export const ItemPrice = styled.div`
   }
 `
 
-export const Button = styled.button`
+export const Buttons = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
  
+
+  .plus_cart {
+    font-size: 2.5rem;
+    color: #FF4742;
+    margin: auto;
+    cursor: pointer;
+
+    &:hover {
+      color: green;
+    }
+  }
+`
+
+export const ButtonDetail = styled.button`
+  width: 75%;
   background: #FF4742;
   border: 1px solid #FF4742;
   border-radius: 20px;

@@ -44,7 +44,7 @@ export const Cart = styled.div`
 export const CounterCart = styled.div`
   width: 100%;
   text-align: center;
-  color: red;
+  color: white;
   background-color: transparent;
   font-size: 1rem;
   font-weight: 900;

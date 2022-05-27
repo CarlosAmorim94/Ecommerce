@@ -1,5 +1,5 @@
 import { HeaderStyled, LinkStyled, Logo, Cart, CounterCart } from './styles'
-import { BsBag } from 'react-icons/bs'
+import { FaShoppingBag } from 'react-icons/fa'
 import Image from 'next/image'
 import logoShop from '../../../public/img/logo.png'
 import Link from 'next/link'
@@ -36,7 +36,7 @@ export const Header = () => {
             <CounterCart>{cart?.cartItems.length < 10 ? `0${cart.cartItems.length}` : `${cart.cartItems.length}`}</CounterCart>
             }
             
-            <BsBag className='cart-shopp' />
+            <FaShoppingBag className='cart-shopp' />
           
           </Cart>
         </a>

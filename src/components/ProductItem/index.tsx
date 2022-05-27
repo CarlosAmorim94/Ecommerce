@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { Product } from "../../types/Products";
-import { Button, ItemPrice, ItemTitle, ProductItems } from "./styles";
+import { ButtonDetail, Buttons, ItemPrice, ItemTitle, ProductItems } from "./styles";
 import Link from "next/link";
 import { toRealBRFormat } from "../../helpers/ValuesFormat";
+import { BsBagPlusFill } from "react-icons/bs";
+import { CartContext } from "../../contexts/CartContext";
 
 type Props = {
   items: Product
 }
 
 export const ProductItem = ({ items } : Props) => {
+
+  const cart = useContext(CartContext)
 
   return (
     <ProductItems>
@@ -33,9 +37,17 @@ export const ProductItem = ({ items } : Props) => {
 
         <ItemTitle>{items.title}</ItemTitle>
 
-        <Link href={`/products/${items.id}`}>
-          <Button>Mais detalhes</Button>
-        </Link>
+        <Buttons>
+          <Link href={`/products/${items.id}`}>
+            <ButtonDetail>Mais detalhes</ButtonDetail>
+          </Link>
+
+          <BsBagPlusFill
+            className="plus_cart"
+            onClick={() => {cart?.addProducts(items)}}
+            />
+        </Buttons>
+        
         
 
     </ProductItems>
