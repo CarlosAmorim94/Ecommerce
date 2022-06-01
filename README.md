@@ -3,7 +3,8 @@
 Projeto próprio criado para validar e treinar conceitos de NexttJS e Typescript!
 Será desenvolvido do 0 desde o UI até deploy, sem seguir aulas, apenas tirando dúvidas online!
 
- file:///home/carlos/Documents/github/portfolio/public/img/projects/projeto.gif
+![ecommerce](https://user-images.githubusercontent.com/83739628/171518128-4c980efc-cf89-4e00-a109-f90f312941e0.gif)
+
 
 ## 🖥️ Acesse:
 
