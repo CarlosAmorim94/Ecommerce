@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Container, ProductsArea, ScreenWarning } from '../styles/Home'
-import { Product, Products } from '../types/Products'
+import { Product } from '../types/Products'
 import { Hero } from '../components/Hero'
 import { ProductItem } from '../components/ProductItem'
 

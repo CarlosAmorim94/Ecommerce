@@ -9,7 +9,7 @@ import { useContext } from 'react'
 
 export const Header = () => {
 
-  const cart = useContext(CartContext)
+  const cart: any = useContext(CartContext)
   
 
   return (
